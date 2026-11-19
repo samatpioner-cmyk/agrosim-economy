@@ -1,0 +1,198 @@
+[
+ {
+  "level": 1,
+  "choice": {
+   "area": 500
+  },
+  "points": 6250,
+  "cash": 884000000,
+  "profit": -49333333,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 2,
+  "choice": {
+   "area": 500,
+   "seed": "standard"
+  },
+  "points": 6250,
+  "cash": 486000000,
+  "profit": -197333332,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 3,
+  "choice": {
+   "storage": "lease250",
+   "repay_on_return": false
+  },
+  "points": 6250,
+  "cash": 142000000,
+  "profit": -394666664,
+  "debt": 0,
+  "grain": 1200000,
+  "interest": 0
+ },
+ {
+  "level": 4,
+  "choice": {
+   "deferred": false
+  },
+  "points": 6250,
+  "cash": 1466240000,
+  "profit": 391240003,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 5,
+  "choice": {
+   "fertilizer": "high"
+  },
+  "points": 6250,
+  "cash": 989740000,
+  "profit": 193906671,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 6,
+  "choice": {
+   "staff": 10
+  },
+  "points": 6250,
+  "cash": 942740000,
+  "profit": 138573338,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 7,
+  "choice": {
+   "equipment": "buy"
+  },
+  "points": 6250,
+  "cash": 672740000,
+  "profit": 51906672,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 8,
+  "choice": {
+   "plan": "forward"
+  },
+  "points": 6250,
+  "cash": 173788980,
+  "profit": -249331977,
+  "debt": 0,
+  "grain": 1443210,
+  "interest": 0
+ },
+ {
+  "level": 9,
+  "choice": {
+   "deposit": 1200000000
+  },
+  "points": 6250,
+  "cash": 594165120,
+  "profit": 845831792,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 10,
+  "choice": {
+   "borrow": 0
+  },
+  "points": 6250,
+  "cash": 524165120,
+  "profit": 755831792,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 11,
+  "choice": {
+   "deferred": true
+  },
+  "points": 6250,
+  "cash": 1133255120,
+  "profit": 1251114512,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 12,
+  "choice": {
+   "repay": 0,
+   "rent_fraction": 10000
+  },
+  "points": 6250,
+  "cash": 2178197840,
+  "profit": 1116114512,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 13,
+  "choice": {
+   "reserve": 180000000
+  },
+  "points": 6250,
+  "cash": 2108197840,
+  "profit": 1026114512,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 14,
+  "choice": {
+   "weather": "intensive"
+  },
+  "points": 6250,
+  "cash": 1548197840,
+  "profit": 801114512,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ },
+ {
+  "level": 15,
+  "choice": {
+   "repair": "repair",
+   "storage": "lease250"
+  },
+  "points": 6250,
+  "cash": 1418197840,
+  "profit": 756114512,
+  "debt": 0,
+  "grain": 1116000,
+  "interest": 0
+ },
+ {
+  "level": 16,
+  "choice": {
+   "final": "cash"
+  },
+  "points": 6250,
+  "cash": 2503532996,
+  "profit": 1250199668,
+  "debt": 0,
+  "grain": 0,
+  "interest": 0
+ }
+]

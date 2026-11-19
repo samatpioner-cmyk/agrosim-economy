@@ -1,0 +1,452 @@
+{
+  "version": "draft-0.1",
+  "status": "Учебная расчётная модель для ТЗ; не конфигурация готовой игры",
+  "money_input_unit": "RUB",
+  "money_calculation_unit": "integer kopecks",
+  "quantity_unit": "kg",
+  "provenance": {
+    "spec_examples": [
+      "initial.cash",
+      "initial.land_ha",
+      "initial.employees",
+      "initial.tractors",
+      "initial.combines",
+      "initial.storage_kg",
+      "initial.debt"
+    ],
+    "finance_rules": [
+      "integer kopecks and kilograms",
+      "half-up rounding",
+      "separate revenue and cash",
+      "weighted inventory cost",
+      "annual basis points / 120000 per month",
+      "interest before principal repayment",
+      "depreciation limited by equipment value"
+    ],
+    "test_reference_not_campaign_default": {
+      "cash_rub": 100000,
+      "inventory_kg": 1000,
+      "sale_price_rub_per_t": 10000,
+      "annual_interest_bps": 1200
+    },
+    "new_teaching_assumptions": "Все прочие числовые значения, календарь, стратегии и правила помощи добавлены для расчётного черновика. Это не статистика и не найденный баланс платформы."
+  },
+  "initial": {
+    "cash": 10000000,
+    "land_ha": 500,
+    "employees": 12,
+    "tractors": 2,
+    "combines": 1,
+    "storage_kg": 1000000,
+    "debt": 0,
+    "inventory_kg": 0,
+    "equipment_value": 10000000
+  },
+  "economy": {
+    "salary_per_employee_month": 30000,
+    "overhead_per_month": 50000,
+    "rent_per_active_ha_year": 1500,
+    "seed_per_ha": 3000,
+    "field_work_per_ha": 2500,
+    "fertilizer_cost_per_ha": {
+      "low": 1000,
+      "standard": 2500,
+      "high": 5000
+    },
+    "fertilizer_yield_bps": {
+      "low": 8000,
+      "standard": 10000,
+      "high": 11500
+    },
+    "base_yield_kg_per_ha": 2400,
+    "harvest_per_ha": 1000,
+    "delivery_per_kg": 0.5,
+    "storage_per_kg_month": 0.1,
+    "storage_loss_bps_month": 20,
+    "normal_sale_price_per_kg": 12,
+    "overflow_sale_price_per_kg": 10,
+    "severance_months": 1,
+    "employee_capacity_ha": 50,
+    "tractor_capacity_ha": 250,
+    "combine_capacity_ha": 600,
+    "annual_depreciation_bps": 1000,
+    "efficiency_upgrade_price": 2000000,
+    "efficiency_upgrade_saving_per_ha": 1500,
+    "tractor_repair": 400000,
+    "breakdown_capacity_bps_without_repair": 6000,
+    "weather_response_cost_per_ha": 600,
+    "weather_response_recovery_bps": 500,
+    "annual_interest_bps": 1200,
+    "standard_credit_limit": 3000000,
+    "deferred_payment_months": 1,
+    "deferred_price_premium_bps": 300,
+    "reserve_target": 1000000
+  },
+  "help": {
+    "annual_limit": 2000000,
+    "service_fee_bps": 500,
+    "score_penalty_hundredths_per_episode": 1000,
+    "arrears_penalty_hundredths_per_month": 200,
+    "arrears_next_season_yield_bps": 8500,
+    "repayment": "После поступления оплаты сначала проценты и обязательные расходы периода, затем просрочка, помощь с комиссией, обычный долг; сохраняется целевой резерв, кроме финального погашения"
+  },
+  "score": {
+    "level_max_hundredths": 3125,
+    "levels": 32,
+    "campaign_max": 1000,
+    "xp_max_per_level": 100,
+    "stars": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "status": "Максимум проверяется арифметически; критерии q и пороги звёзд не подтверждены этой финансовой моделью"
+  },
+  "seasons": [
+    {
+      "id": 1,
+      "weather_bps": 10000,
+      "price_bps": 10000,
+      "breakdown": false
+    },
+    {
+      "id": 2,
+      "weather_bps": 10500,
+      "price_bps": 10200,
+      "breakdown": false
+    },
+    {
+      "id": 3,
+      "weather_bps": 7500,
+      "price_bps": 11000,
+      "breakdown": false
+    },
+    {
+      "id": 4,
+      "weather_bps": 8500,
+      "price_bps": 9500,
+      "breakdown": true
+    }
+  ],
+  "month_price_bps": {
+    "1": 10000,
+    "2": 10000,
+    "3": 10000,
+    "4": 10000,
+    "5": 10000,
+    "6": 10000,
+    "7": 10000,
+    "8": 9700,
+    "9": 10000,
+    "10": 10400,
+    "11": 10700,
+    "12": 10500
+  },
+  "levels": [
+    {
+      "id": 1,
+      "season": 1,
+      "month": 1,
+      "title": "Первое поле",
+      "action": "plan"
+    },
+    {
+      "id": 2,
+      "season": 1,
+      "month": 4,
+      "title": "Семена и посев",
+      "action": "sow"
+    },
+    {
+      "id": 3,
+      "season": 1,
+      "month": 7,
+      "title": "Удобрения",
+      "action": "fertilize"
+    },
+    {
+      "id": 4,
+      "season": 1,
+      "month": 8,
+      "title": "Первый урожай",
+      "action": "harvest"
+    },
+    {
+      "id": 5,
+      "season": 1,
+      "month": 9,
+      "title": "Первая продажа",
+      "action": "sell_part"
+    },
+    {
+      "id": 6,
+      "season": 1,
+      "month": 10,
+      "title": "Сколько стоит продажа",
+      "action": "delivery_review"
+    },
+    {
+      "id": 7,
+      "season": 1,
+      "month": 11,
+      "title": "Где прибыль",
+      "action": "settle_sales"
+    },
+    {
+      "id": 8,
+      "season": 1,
+      "month": 12,
+      "title": "Итоги первого сезона",
+      "action": "close"
+    },
+    {
+      "id": 9,
+      "season": 2,
+      "month": 1,
+      "title": "Себестоимость тонны",
+      "action": "plan"
+    },
+    {
+      "id": 10,
+      "season": 2,
+      "month": 2,
+      "title": "Сотрудники",
+      "action": "staff"
+    },
+    {
+      "id": 11,
+      "season": 2,
+      "month": 3,
+      "title": "Фонд оплаты труда",
+      "action": "payroll_review"
+    },
+    {
+      "id": 12,
+      "season": 2,
+      "month": 4,
+      "title": "Своя техника или подрядчик",
+      "action": "upgrade"
+    },
+    {
+      "id": 13,
+      "season": 2,
+      "month": 5,
+      "title": "План второго посева",
+      "action": "sow_and_fertilize"
+    },
+    {
+      "id": 14,
+      "season": 2,
+      "month": 8,
+      "title": "Производительность и уборка",
+      "action": "harvest"
+    },
+    {
+      "id": 15,
+      "season": 2,
+      "month": 10,
+      "title": "Продать сейчас или подождать",
+      "action": "sell_part"
+    },
+    {
+      "id": 16,
+      "season": 2,
+      "month": 12,
+      "title": "Итоги второго сезона",
+      "action": "close"
+    },
+    {
+      "id": 17,
+      "season": 3,
+      "month": 1,
+      "title": "Деньги до посева",
+      "action": "plan"
+    },
+    {
+      "id": 18,
+      "season": 3,
+      "month": 2,
+      "title": "Кассовый разрыв",
+      "action": "cash_review"
+    },
+    {
+      "id": 19,
+      "season": 3,
+      "month": 3,
+      "title": "Условия кредита",
+      "action": "credit_review"
+    },
+    {
+      "id": 20,
+      "season": 3,
+      "month": 4,
+      "title": "Посев с заёмными средствами",
+      "action": "sow_and_fertilize"
+    },
+    {
+      "id": 21,
+      "season": 3,
+      "month": 7,
+      "title": "Проценты и текущие выплаты",
+      "action": "debt_review"
+    },
+    {
+      "id": 22,
+      "season": 3,
+      "month": 8,
+      "title": "Урожай под обязательства",
+      "action": "harvest"
+    },
+    {
+      "id": 23,
+      "season": 3,
+      "month": 9,
+      "title": "Продажа с отсрочкой",
+      "action": "sell_part"
+    },
+    {
+      "id": 24,
+      "season": 3,
+      "month": 12,
+      "title": "Погашение и итог сезона",
+      "action": "close"
+    },
+    {
+      "id": 25,
+      "season": 4,
+      "month": 1,
+      "title": "План развития",
+      "action": "plan"
+    },
+    {
+      "id": 26,
+      "season": 4,
+      "month": 2,
+      "title": "Резерв на риск",
+      "action": "cash_review"
+    },
+    {
+      "id": 27,
+      "season": 4,
+      "month": 4,
+      "title": "Самостоятельный посев",
+      "action": "sow_and_fertilize"
+    },
+    {
+      "id": 28,
+      "season": 4,
+      "month": 7,
+      "title": "Погода меняет план",
+      "action": "weather_response"
+    },
+    {
+      "id": 29,
+      "season": 4,
+      "month": 8,
+      "title": "Поломка техники",
+      "action": "repair_and_harvest"
+    },
+    {
+      "id": 30,
+      "season": 4,
+      "month": 9,
+      "title": "Цена и склад",
+      "action": "sell_part"
+    },
+    {
+      "id": 31,
+      "season": 4,
+      "month": 11,
+      "title": "Закрываем обязательства",
+      "action": "settle_sales"
+    },
+    {
+      "id": 32,
+      "season": 4,
+      "month": 12,
+      "title": "Хозяйство под твоим управлением",
+      "action": "close"
+    }
+  ],
+  "policies": [
+    {
+      "id": "baseline",
+      "name": "Базовая: полный посев, умеренные затраты",
+      "area": 500,
+      "staff": 12,
+      "fertilizer": "standard",
+      "upgrade": false,
+      "repair": true,
+      "respond_weather": false,
+      "first_sale_bps": 7000,
+      "deferred": false,
+      "auto_credit": true
+    },
+    {
+      "id": "efficient",
+      "name": "Бережливая: штат по мощности и улучшение техники",
+      "area": 500,
+      "staff": 10,
+      "fertilizer": "standard",
+      "upgrade": true,
+      "repair": true,
+      "respond_weather": true,
+      "first_sale_bps": 5000,
+      "deferred": false,
+      "auto_credit": true
+    },
+    {
+      "id": "small",
+      "name": "Малое хозяйство: 400 га и 8 работников",
+      "area": 400,
+      "staff": 8,
+      "fertilizer": "standard",
+      "upgrade": false,
+      "repair": true,
+      "respond_weather": false,
+      "first_sale_bps": 10000,
+      "deferred": false,
+      "auto_credit": true
+    },
+    {
+      "id": "intensive",
+      "name": "Интенсивная: дорогие удобрения",
+      "area": 500,
+      "staff": 12,
+      "fertilizer": "high",
+      "upgrade": true,
+      "repair": true,
+      "respond_weather": true,
+      "first_sale_bps": 7000,
+      "deferred": false,
+      "auto_credit": true
+    },
+    {
+      "id": "wait",
+      "name": "Ожидание цены и продажа с отсрочкой",
+      "area": 500,
+      "staff": 12,
+      "fertilizer": "standard",
+      "upgrade": false,
+      "repair": true,
+      "respond_weather": false,
+      "first_sale_bps": 0,
+      "deferred": true,
+      "auto_credit": true
+    },
+    {
+      "id": "passive",
+      "name": "Ничего не производить и не сокращать расходы",
+      "area": 0,
+      "staff": 12,
+      "fertilizer": "low",
+      "upgrade": false,
+      "repair": false,
+      "respond_weather": false,
+      "first_sale_bps": 0,
+      "deferred": false,
+      "auto_credit": false
+    }
+  ]
+}

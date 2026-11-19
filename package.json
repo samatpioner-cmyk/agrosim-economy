@@ -1,0 +1,13 @@
+{
+  "name": "agrosim-economy",
+  "version": "5.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/game.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "preact": "10.24.3"
+  }
+}
